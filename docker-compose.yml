@@ -1,0 +1,17 @@
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: trip1234
+      MYSQL_DATABASE: tripbooking
+      MYSQL_USER: tripbooking
+      MYSQL_PASSWORD: trip1234
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
