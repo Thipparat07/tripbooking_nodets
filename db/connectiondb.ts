@@ -16,9 +16,9 @@ export interface Trip {
 
 export const conn = mysql.createPool({
   connectionLimit: 10,
-  host: "localhost",
+  host: "202.28.34.197",
   user: "tripbooking",
-  password: "trip1234",
+  password: "tripbooking@csmsu",
   database: "tripbooking",
 });
 

@@ -3,8 +3,17 @@ import { router as index } from "./controller/index";
 import { router as trip } from "./controller/trip";
 import { router as upload } from "./controller/upload";
 import bodyParser from "body-parser";
+import cors from "cors";
 
 export const app = express();
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 app.use(bodyParser.text());
 app.use(bodyParser.json());

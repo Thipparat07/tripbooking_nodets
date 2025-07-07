@@ -16,11 +16,19 @@ export interface Trip {
 
 export const router = express.Router();
 
+
 router.get("/", (req, res) => {
-  conn.query("select * from trip", (err, result, fields) => {
-    let trips = result as Trip[];
-    res.json(result);
-  });
+  if (req.query.id) {
+    conn.query("select * from trip WHERE idx= ?",[req.query.id] ,(err, result, fields) => {
+      let trips = result as Trip[];
+      res.json(trips);
+    });
+  } else {
+    conn.query("select * from trip", (err, result, fields) => {
+      let trips = result as Trip[];
+      res.json(result);
+    });
+  }
 });
 
 
